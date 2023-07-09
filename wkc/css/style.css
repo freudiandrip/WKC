@@ -1,0 +1,63 @@
+/*#########################################
+ *  CUSTOM STYLE SHEET 
+ * ######################################*/
+@import url('https://fonts.googleapis.com/css2?&family=Roboto+Mono&family=League+Script&family=Vibur&family=Yeseva+One&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* custom files not working? */
+@font-face {
+  font-family: 'cmunrm', serif;
+  src: url('../assets/fonts/cmunrm.woff') 
+}
+@font-face {
+  font-family: 'cmunbx', bold;
+  font-weight: 700;
+  src: url('../assets/fonts/cmunbx.woff')
+}
+@font-face {
+  font-family: 'cmunti', italic;
+  src: url('../assets/fonts/cmunti.woff') 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #E1DCE4;
+  /* width: 90vw; */
+
+  font-family: 'Tinos', serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h1 {
+  /* font-family: 'Vibur', cursive; */
+  /* font-family: 'Yeseva One', cursive; */
+  font-family: 'League Script', cursive;
+  font-size: 36pt;
+  color: #462467;
+}
+
+header {
+  background-color: #eeeeee;
+  margin: auto;
+  text-align: center;
+}
+
+.wrapper {
+  margin: auto;
+}
+
+.content{
+  width: 66vw;
+  max-width: 760px;
+  margin: auto;
+  padding: 20px 0px;
+}
+
+text.year {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10pt;
+}
+
