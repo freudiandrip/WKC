@@ -15,7 +15,7 @@
     Westminster's Top Dogs
   </h1>
   </header>
-  <div class="wrapper">
+  <div class="content-wrapper">
     <div class="content">
     <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui mauris, congue eu magna ac, bibendum aliquet erat. Nulla ullamcorper posuere nisl vel tristique. Etiam pharetra, ex vestibulum aliquam euismod, mauris sapien imperdiet ante, nec lobortis odio ipsum in nulla. Sed volutpat risus magna. Sed scelerisque fringilla feugiat. Proin molestie mauris sed commodo posuere. Pellentesque vitae finibus turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nec justo non est tristique egestas id ac sapien.
@@ -24,12 +24,23 @@
     Mauris id maximus urna. Suspendisse sodales vel tellus nec ultrices. Donec efficitur et purus et varius. Nam ornare, quam sit amet laoreet placerat, risus metus fringilla dui, at iaculis massa eros eu sem. Phasellus a erat ut lectus scelerisque gravida. Fusce in ex nec orci vulputate pulvinar. Pellentesque pharetra magna nibh, et feugiat turpis viverra at. Morbi imperdiet turpis dolor, a pellentesque mauris finibus nec. Curabitur malesuada enim sed fringilla lacinia. In hac habitasse platea dictumst. 
     </p>
     </div>
-    <div class="axis">
-      <svg class="axis"></svg>
-    </div>
+  </div>
+  <div class="axis">
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+      <linearGradient id="dog-gradient" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E2C4FF" />
+      <stop offset="100%" stop-color="#28153B" />
+      </linearGradient>
+    </svg>
+    <svg class="axis"></svg>
+    <svg class="legend">
+    </svg>
+  </div>
+  <div class="chart-wrapper">
     <div class="heatmap">
       <svg class="heatmap"></svg>
     </div>
+  </div>
   <!-- SCRIPT FILES -->
   <script src="./js/d3.min.js"></script>
   <script src="./js/heatmap.js"></script>

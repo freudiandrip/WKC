@@ -45,8 +45,10 @@ header {
   text-align: center;
 }
 
-.wrapper {
+.content-wrapper {
   margin: auto;
+  /* position: relative; */
+  /* height: 100vh; */
 }
 
 .content{
@@ -58,6 +60,32 @@ header {
 
 text.year {
   font-family: 'Roboto Mono', monospace;
-  font-size: 10pt;
+  font-size: 11pt;
+
+  vertical-align: baseline;
 }
 
+.axis {
+  position: sticky;
+  top: 0;
+  padding-top: 8px;
+}
+
+text.label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10pt;
+  /* font-weight: 500; */
+
+  fill: #000000;
+}
+
+svg.legend text {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8.5pt;
+
+  fill: #000000;
+}
+
+circle.dogs {
+  fill: url(#dog-gradient) #462467; 
+}
