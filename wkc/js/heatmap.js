@@ -3,7 +3,6 @@
 // Lede Project 2 - July 2023
 //-----------------------------------------------------------------------
 let data = []
-
 let dogCSV = "https://raw.githubusercontent.com/sherbert-lemon/public-data/master/top_dogs.csv"
 
 d3.csv(dogCSV, function(d) {
@@ -29,6 +28,19 @@ d3.csv(dogCSV, function(d) {
     const yearData = groupedData.slice().sort(function (a, b) {
       return d3.ascending(a.key, b.key)
     })
+
+    let annotatedData = [
+      { year: 1925, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 1930, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 1937, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 1945, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 1958, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 1964, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 1983, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 1988, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 2002, img: "path", alt : "alt text", text : "lorem ipsum" },
+      { year: 2021, img: "path", alt : "alt text", text : "lorem ipsum" }
+    ]
 
     // svg set up
     // selecting chart
@@ -73,7 +85,7 @@ d3.csv(dogCSV, function(d) {
     let years = [1925, 1930, 1937, 1945, 1958, 1964, 1983, 1988, 2002, 2021]
     
     const classFn = function (year) {
-      if (years.includes(+year)) { console.log(year); return `annotated` }
+      if (years.includes(+year)) { return `annotated` }
     }
 
     const mouseover = function(d) {
@@ -132,7 +144,6 @@ d3.csv(dogCSV, function(d) {
       .enter()
       .append('g')
       .attr('class', 'row')
-      .attr('class', (d,i) => classFn(d.key))
       // scale transform
       .attr('transform', (d,i) => {
         const x = padding.left + cellSize
@@ -151,6 +162,7 @@ d3.csv(dogCSV, function(d) {
     const dogGroup = row
       .append('g')
       .attr('class', 'group')
+      .attr('class', (d,i) => classFn(d.key))
       .attr('transform', `translate(${cellSize + padding.left}, 4)`)
 
     // each dog group: 1 dog per cell, 7x dog cells
@@ -177,20 +189,8 @@ d3.csv(dogCSV, function(d) {
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave)
     // END ENTER + APPEND ------------------------------------
-    
-    // ANNOTATIONS
-    const parentDiv = d3.select('.annotations')
-    
-    const annotation = parentDiv.selectAll('div.annotation')
-      .data(years)
-      .enter()
-      .append('div')
-      .attr('class', 'annotation')
-      .append('text')
 
-    console.log(yScale.invert('1925'))
-    
-    // fuck it manual axis, legend set-up
+    // fuck it manual axis, legend set-up -------------------------------
     //  setting up
     svgAxis
       .attr('width', 452)
@@ -211,10 +211,6 @@ d3.csv(dogCSV, function(d) {
       .attr('class', 'label')
       .attr('transform', (d,i) => `translate(${ i * (cellSize + 4) + (cellSize + 8) / 2 }, 0) rotate(-45)`)
       .text(d => { return d.group })
-    
-    // const xAxis = d3.axisTop(groupScale)
-
-    // xAxisGroup.call(xAxis)
 
     // legend
     const legend = d3
@@ -263,14 +259,55 @@ d3.csv(dogCSV, function(d) {
       .attr("y", 72)
       .text("Non-competitor")
       .attr("alignment-baseline","middle")
-})
+
+    //body viewport
+    const bodyRect = document.body.getBoundingClientRect()
+    // position of rows of interest
+    const rowTags = document.querySelectorAll('g.annotated')
+    var annotationsList = []
+
+    // looping + returning y position for translation
+    const yPos = function(row) {
+      const rowRect = row.getBoundingClientRect()
+      const offset = rowRect.top - bodyRect.top
+      console.log(offset)
+      // adding as new key, value in data copy
+      annotationsList = annotatedData.map(x => {return x.yPos = offset })
+    })
+    
+    console.log(annotationsList)
+    // ANNOTATIONS
+    annotatedData.forEach( note => {
+      // defining tags
+      const yearTag = document.querySelector(`.y-${d.year}`)
+      const imgTag = yearTag.querySelector('img')
+      const textTag = yearTag.querySelector('p.content') 
+      const yPos = note.yPos
+      const year = note.year
+
+      // 1. positioning our annotation based on year
+      yearTag.style.top = `${yPos}px`
+
+      // 2. adding annotated text to content tag
+      const text = note.text
+      const textEl = document.createTextNode(text)
+      textTag.appendChild(text)
+     
+      // 3. adding img url, alt text
+    })
+
+    // const annotation = parentDiv.selectAll('div.annotation')
+    //   .data(years)
+    //   .enter()
+    //   .append('div')
+    //   .attr('class', 'annotation')
+    //   .attr('class', (d,i) => { return `note-${d}` })
+    //   .append('text')
 
 
 
 
 
-
-
-
+  })
 
 console.log("‧₊˚✩", "reached end of script", "✩˚₊‧")

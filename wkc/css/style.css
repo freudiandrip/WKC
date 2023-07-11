@@ -72,11 +72,30 @@ header {
 
 .annotations {
   width: 65vw;
+  position: relative;
+
+  /* font-family: 'Roboto Mono', monospace; */
 }
 
-.annotation {
-  background-color: #ff0000;
+.note-text {
+  background-color: #BEAFCC;
+  width: 280px;
+  height: auto;
+  position: absolute;
 
+  color: #4e4854;
+}
+
+.note-img {
+  background-color: #4E4854;
+  width: 280px;
+  height: auto;
+  position: absolute;
+  
+  display: flex;
+  flex-direction: column;
+
+  color: #eeeeee;
 }
 
 .tooltip {
