@@ -25,24 +25,32 @@
     </p>
     </div>
   </div>
-  <div class="axis">
-    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
-      <linearGradient id="dog-gradient" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E2C4FF" />
-      <stop offset="100%" stop-color="#28153B" />
-      </linearGradient>
-    </svg>
-    <svg class="axis"></svg>
-    <svg class="legend">
-    </svg>
-  </div>
   <div class="chart-wrapper">
-    <div class="heatmap">
-      <svg class="heatmap"></svg>
+    <div class="left-wrapper">
+      <div class="heatmap" id="heatmap">
+        <div class="axis">
+          <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+            <linearGradient id="dog-gradient" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E2C4FF" />
+            <stop offset="100%" stop-color="#28153B" />
+            </linearGradient>
+          </svg>
+          <svg class="axis"></svg>
+        </div>
+        <svg class="heatmap"></svg>
+      </div>
+    </div>
+      <div class="right-wrapper">
+        <svg class="legend"></svg>
+        <div class="annotations">
+          <div class="test">
+          </div>
+        </div>
     </div>
   </div>
   <!-- SCRIPT FILES -->
   <script src="./js/d3.min.js"></script>
+  <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
   <script src="./js/heatmap.js"></script>
   <script src="./js/script.js"></script>
 </body>

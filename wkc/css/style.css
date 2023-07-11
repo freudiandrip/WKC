@@ -58,16 +58,55 @@ header {
   padding: 20px 0px;
 }
 
+.chart-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+.heatmap{ 
+  max-width: 35vw;
+  min-width: 460px;
+}
+
+.annotations {
+  width: 65vw;
+}
+
+.annotation {
+  background-color: #ff0000;
+
+}
+
+.tooltip {
+  background-color: #eeeeee;
+  position: absolute;
+  min-width: 80px;
+  max-width: 140px;
+  height: auto;
+  padding: 6px;
+  opacity: 0;
+
+  z-index: 1;
+  border: solid 1.5px #222222;
+  margin: auto;
+
+  font-family: 'Robo Mono', monospace;
+  font-size: 8pt;
+  word-wrap: break-word;
+}
+
 text.year {
   font-family: 'Roboto Mono', monospace;
   font-size: 11pt;
-
   vertical-align: baseline;
 }
 
-.axis {
+.legend {
   position: sticky;
   top: 0;
+  left: 0;
   padding-top: 8px;
 }
 
@@ -82,10 +121,17 @@ text.label {
 svg.legend text {
   font-family: 'Roboto Mono', monospace;
   font-size: 8.5pt;
-
   fill: #000000;
 }
 
 circle.dogs {
   fill: url(#dog-gradient) #462467; 
 }
+
+.test {
+  background-color: #ff0000;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
