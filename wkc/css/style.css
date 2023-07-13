@@ -62,7 +62,7 @@ header {
   display: flex;
   flex-direction: row;
 
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .heatmap{ 
@@ -70,32 +70,60 @@ header {
   min-width: 460px;
 }
 
-.annotations {
-  width: 65vw;
-  position: relative;
+.right-wrapper {
+  width: auto;
+}
 
+.annotations {
+  position: relative;
+  /* width: 65vw; */
   /* font-family: 'Roboto Mono', monospace; */
 }
 
-.note-text {
-  background-color: #BEAFCC;
-  width: 280px;
+.note-text, .note-img {
+  background-color: #F2EFF3;
   height: auto;
   position: absolute;
+  padding: 8px;
 
-  color: #4e4854;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 9pt;
+  color: #222222;
+}
+
+.note-text .year, .note-img .year {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 500;
+  color: #462467;
+}
+
+
+.note-text p.annotation, .note-img p.annotation {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.note-text  {
+  width: 200px;
 }
 
 .note-img {
-  background-color: #4E4854;
-  width: 280px;
-  height: auto;
-  position: absolute;
-  
+  width: 300px;
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+}
 
-  color: #eeeeee;
+.note-img div {
+  padding-left: 8px;
+  padding-top: none;
+}
+
+.note-img img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
 }
 
 .tooltip {
@@ -129,12 +157,16 @@ text.year {
   padding-top: 8px;
 }
 
+.legend svg text {
+  fill: #222222;
+}
+
 text.label {
   font-family: 'Roboto Mono', monospace;
   font-size: 10pt;
   /* font-weight: 500; */
 
-  fill: #000000;
+  fill: #222222;
 }
 
 svg.legend text {
@@ -153,4 +185,6 @@ circle.dogs {
   width: 100px;
   height: 100px;
 }
+
+
 

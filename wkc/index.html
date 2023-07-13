@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Westminster's Top Dogs</title>
-  <!-- <link rel="icon" type="image/x-icon" href="../../images/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="../../images/favicon.svg">
   <!--- STYLE SHEETS  --->
   <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style-scrolly.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -24,6 +25,28 @@
     Mauris id maximus urna. Suspendisse sodales vel tellus nec ultrices. Donec efficitur et purus et varius. Nam ornare, quam sit amet laoreet placerat, risus metus fringilla dui, at iaculis massa eros eu sem. Phasellus a erat ut lectus scelerisque gravida. Fusce in ex nec orci vulputate pulvinar. Pellentesque pharetra magna nibh, et feugiat turpis viverra at. Morbi imperdiet turpis dolor, a pellentesque mauris finibus nec. Curabitur malesuada enim sed fringilla lacinia. In hac habitasse platea dictumst. 
     </p>
     </div>
+    <!-- SCROLLY GOES here -->
+      <section id="scrolly">
+        <div class="sticky-thing">
+          <h1>Best in Show 2023</h1>
+          <img src="./assets/img/BIS-bracket.png">
+        </div>
+
+        <article>
+          <div class="step" data-step="1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="step" data-step="2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="step" data-step="3">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="step" data-step="4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </article>
+      </section>
   </div>
   <div class="chart-wrapper">
     <div class="left-wrapper">
@@ -45,49 +68,72 @@
         <div class="annotations">
           <!-- <div class="test"></div> -->
           <div class="note-img y-1925">
-            <img src="" alt="">
-            <p class="content"></p>
+            <img src="./assets/img/annotations/1925-MSG.png">
+            <div>
+            <p class="year">1924 & </p>
+            <p class="annotation"></p>
+            </div>
           </div>
           <div class="note-text y-1930">
-            <p class="content"></p>
+            <p class="year"></p>
+            <p class="annotation"></p>
           </div>
           <div class="note-img y-1937">
-            <img src="" alt="">
-            <p class="content"></p>
+            <img src="./assets/img/annotations/1937-spicypiece-bis.png">
+            <div>
+            <p class="year"></p>
+            <p class="annotation"></p>
+            </div>
           </div>
           <div class="note-text y-1945">
-            <p class="content"></p>
+            <p class="year">1939 - </p>
+            <p class="annotation"></p>
           </div>
           <div class="note-img y-1958">
-            <img src="" alt="">
-            <p class="content"></p>
+            <img src="./assets/img/annotations/1958-BIS-lineup.png">
+            <div>
+            <p class="year"></p>
+            <p class="annotation"></p>
+            </div>
           </div>
           <div class="note-img y-1964">
-            <img src="" alt="">
-            <p class="content"></p>
+            <img src="./assets/img/annotations/1964-whippet-BIS.png">
+            <div>
+            <p class="year"></p>
+            <p class="annotation"></p>
+            </div>
           </div>
           <div class="note-text y-1983">
-            <p class="content"></p>
+            <p class="year"></p>
+            <p class="annotation"></p>
           </div>
           <div class="note-img y-1988">
-            <img src="" alt="">
-            <p class="content"></p>
+            <img src="./assets/img/annotations/1988-pom-BIS.png">
+            <div>
+            <p class="year"></p>
+            <p class="annotation"></p>
+            </div>
           </div>
           <div class="note-img y-2002">
-            <img src="" alt="">
-            <p class="content"></p>
+            <img src="./assets/img/annotations/2002-Y2K-chi.png">
+            <div>
+            <p class="year"></p>
+            <p class="annotation"></p>
+            </div>
           </div>
           <div class="note-text y-2021">
-            <p class="content"></p>
+            <p class="year"></p>
+            <p class="annotation"></p>
           </div>
         </div>
     </div>
   </div>
   <!-- SCRIPT FILES -->
+  <!-- <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script> -->
+  <script src="https://unpkg.com/scrollama"></script>
   <script src="./js/d3.min.js"></script>
-  <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
-  <script src="./js/annotations.js"></script>
+  <!-- <script src="./js/annotations.js"></script> -->
   <script src="./js/heatmap.js"></script>
-  <!-- <script src="./js/script.js"></script> -->
+  <script src="./js/script.js"></script>
 </body>
 </html>

@@ -28,18 +28,17 @@ d3.csv(dogCSV, function(d) {
     const yearData = groupedData.slice().sort(function (a, b) {
       return d3.ascending(a.key, b.key)
     })
-
     let annotatedData = [
-      { year: 1925, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 1930, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 1937, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 1945, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 1958, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 1964, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 1983, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 1988, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 2002, img: "path", alt : "alt text", text : "lorem ipsum" },
-      { year: 2021, img: "path", alt : "alt text", text : "lorem ipsum" }
+      { year: 1925, img: "../assets/img/annotations/1925-MSG.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
+      { year: 1930, img: "None", alt : "alt text", text : "Hound groups are officially recognized as their own separate group." },
+      { year: 1937, img: "../assets/img/annotations/1937-spicypiece-bis.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
+      { year: 1945, img: "None", alt : "alt text", text : "In addition to the great depression in the 30's, the show was also held during the war years."},
+      { year: 1958, img: "../assets/img/annotations/1958-BIS-lineup.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
+      { year: 1964, img: "../assets/img/annotations/1964-whippet-BIS.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
+      { year: 1983, img: "None", alt : "alt text",text : "Herding breeds are officially recognized as their own separate group"},
+      { year: 1988, img: "../assets/img/annotations/1988-pom-BIS.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
+      { year: 2002, img: "../assets/img/annotations/2002-Y2K-chi.jpg", alt : "alt text", text : "The chihuahua / toy breed craze peaked in early aughts."},
+      { year: 2021, img: "None", alt : "alt text", text : "Westminster's  move to Tarrytown due to the pandemic marked the first time in history the show wasn't held at MSG."}
     ]
 
     // svg set up
@@ -104,7 +103,7 @@ d3.csv(dogCSV, function(d) {
 
       tooltip
         .style("left", `${mouseX + 20}px`)
-        .style("top", `${mouseY}px`)
+        .style("top", `${mouseY - (cellSize + 16)}px`)
       
      if (+d.won === 0) {
         tooltip
@@ -264,49 +263,38 @@ d3.csv(dogCSV, function(d) {
     const bodyRect = document.body.getBoundingClientRect()
     // position of rows of interest
     const rowTags = document.querySelectorAll('g.annotated')
-    var annotationsList = []
-
+    const marginTop = rowTags[0].getBoundingClientRect().top - bodyRect.top // distance of element from body
+    
     // looping + returning y position for translation
-    const yPos = function(row) {
+    rowTags.forEach( (row, i) => {
       const rowRect = row.getBoundingClientRect()
-      const offset = rowRect.top - bodyRect.top
-      console.log(offset)
+      const offset = rowRect.top - bodyRect.top - marginTop + cellSize// distance of element from parent div
+
       // adding as new key, value in data copy
-      annotationsList = annotatedData.map(x => {return x.yPos = offset })
+      const item = annotatedData[i]
+      item.yPos = offset 
     })
     
-    console.log(annotationsList)
     // ANNOTATIONS
     annotatedData.forEach( note => {
       // defining tags
-      const yearTag = document.querySelector(`.y-${d.year}`)
-      const imgTag = yearTag.querySelector('img')
-      const textTag = yearTag.querySelector('p.content') 
       const yPos = note.yPos
       const year = note.year
+      const text = note.text
+      // const imgSrc = note.img
+      const noteTag = document.querySelector(`.y-${year}`)
+      const textTag = noteTag.querySelector('p.annotation')
+      const titleTag = noteTag.querySelector('p.year')
 
       // 1. positioning our annotation based on year
-      yearTag.style.top = `${yPos}px`
+      noteTag.style.top = `${yPos}px`
 
       // 2. adding annotated text to content tag
-      const text = note.text
+      const yearEl = document.createTextNode(`${year}`)
       const textEl = document.createTextNode(text)
-      textTag.appendChild(text)
-     
-      // 3. adding img url, alt text
+      titleTag.appendChild(yearEl)
+      textTag.appendChild(textEl)
     })
-
-    // const annotation = parentDiv.selectAll('div.annotation')
-    //   .data(years)
-    //   .enter()
-    //   .append('div')
-    //   .attr('class', 'annotation')
-    //   .attr('class', (d,i) => { return `note-${d}` })
-    //   .append('text')
-
-
-
-
 
   })
 
