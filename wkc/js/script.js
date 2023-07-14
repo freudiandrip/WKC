@@ -4,7 +4,6 @@
       var article = scrolly.querySelector("article");
       var steps = article.querySelectorAll(".step");
       const imgTag = sticky.querySelector('img')
-      console.log(imgTag)
 
       // initialize the scrollama
       var scroller = scrollama();
@@ -21,7 +20,7 @@
 
         // update graphic based on step
         // sticky.querySelector("p").innerText = el.dataset.step
-        imgTag.src="../assets/img/BIS-bracket-win.png"
+        imgTag.src="../assets/img/BIS-bracket-win-h.png"
       }
 
       function init() {
