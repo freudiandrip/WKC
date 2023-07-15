@@ -1,47 +1,65 @@
-      var main = document.querySelector("div.content-wrapper");
-      var scrolly = main.querySelector("section#scrolly");
-      var sticky = scrolly.querySelector("div.sticky-thing");
-      var article = scrolly.querySelector("article");
-      var steps = article.querySelectorAll(".step");
-      const imgTag = sticky.querySelector('img')
+//#######################################################
+// Scrollama script 
+// adapted from: https://jsoma.github.io/simplified-scrollama-scrollytelling/sticky-overlay.html
+//#######################################################
+// const initializing
+const main = document.querySelector("div.content-wrapper");
+const scrolly = main.querySelector("section#scrolly");
+const sticky = scrolly.querySelector("div.sticky-thing");
+const article = scrolly.querySelector("article");
+const steps = article.querySelectorAll(".step");
+const desktopTag = sticky.querySelector('img.desktop')
+const mobileTag = sticky.querySelector('img.mobile') 
 
-      // initialize the scrollama
-      var scroller = scrollama();
+// initialize the scrollama
+const scroller = scrollama();
 
-      // scrollama event handlers
-      function handleStepEnter(response) {
-        // response = { element, direction, index }
-        var el = response.element;
+// scrollama event handlers
+function handleStepEnter(response) {
+  // response = { element, direction, index }
+  const el = response.element;
 
-        // remove is-active from all steps
-        // then add is-active to this step
-        steps.forEach(step => step.classList.remove('is-active'));
-        el.classList.add('is-active');
+  // remove is-active from all steps
+  // then add is-active to this step
+  steps.forEach(step => step.classList.remove('is-active'));
+  el.classList.add('is-active');
 
-        // update graphic based on step
-        // sticky.querySelector("p").innerText = el.dataset.step
-        imgTag.src="../assets/img/BIS-bracket-win-h.png"
-      }
+  // update graphic based on step
+  if (el.id === "last")  {
+    desktopTag.removeAttribute("src")
+    mobileTag.removeAttribute("src")
+    desktopTag.src = "../assets/img/BIS-bracket-win-h.png" 
+    mobileTag.src = "../assets/img/BIS-bracket-win-v.png" 
+  }
+  else { 
+    desktopTag.removeAttribute("src")
+    mobileTag.removeAttribute("src")
+    desktopTag.src = "../assets/img/BIS-bracket-h.png" 
+    mobileTag.src = "../assets/img/BIS-bracket-v.png" 
+  }
+  // removing active step after scrolling out of view.
+  // steps.forEach(step => step.classList.remove('is-active'));
+}
 
-      function init() {
-        // 2. setup the scroller passing options
-        // 		this will also initialize trigger observations
-        // 3. bind scrollama event handlers (this can be chained like below)
-        console.log('initialized!!!!')
-        scroller
-          .setup({
-            step: "#scrolly article .step",
-            // offset: 0.33,
-            debug: false 
-          })
-          .onStepEnter(handleStepEnter);
+function init() {
+  // 2. setup the scroller passing options
+  // 		this will also initialize trigger observations
+  // 3. bind scrollama event handlers (this can be chained like below)
+  scroller
+    .setup({
+      step: "#scrolly article .step",
+      // offset: 0.33,
+      debug: false 
+    })
+    .onStepEnter(handleStepEnter);
 
-        // setup resize event
-        window.addEventListener("resize", scroller.resize);
-      }
+  // setup resize event
+  window.addEventListener("resize", scroller.resize);
+}
 
-      // kick things off
-      init();
+// kick things off
+init()
+
 
 
 

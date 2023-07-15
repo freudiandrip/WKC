@@ -29,14 +29,15 @@ d3.csv(dogCSV, function(d) {
       return d3.ascending(a.key, b.key)
     })
     let annotatedData = [
-      { year: 1925, img: "../assets/img/annotations/1925-MSG.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
-      { year: 1930, img: "None", alt : "alt text", text : "Hound groups are officially recognized as their own separate group." },
-      { year: 1937, img: "../assets/img/annotations/1937-spicypiece-bis.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
-      { year: 1945, img: "None", alt : "alt text", text : "In addition to the great depression in the 30's, the show was also held during the war years."},
-      { year: 1958, img: "../assets/img/annotations/1958-BIS-lineup.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
-      { year: 1964, img: "../assets/img/annotations/1964-whippet-BIS.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
-      { year: 1983, img: "None", alt : "alt text",text : "Herding breeds are officially recognized as their own separate group"},
-      { year: 1988, img: "../assets/img/annotations/1988-pom-BIS.jpg", alt : "alt text", text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi orci, pulvinar iaculis sodales nec, gravida sit amet sapien." },
+      { year: 1925, img: "../assets/img/annotations/1925-MSG.jpg", alt : "alt text", text : "1924 marked the first year breeds were grouped, standardizing the judging process. Pictured is MSG from 1890 - 1925; MSG moved to 8th & 49th in 1926, where the show would be held until 1968."},
+      { year: 1930, img: "None", alt : "alt text", text : "Hound breeds are officially recognized as their own separate group." },
+      { year: 1937, img: "../assets/img/annotations/1937-spicypiece-bis.jpg", alt : "alt text", text : "A vintage poster depicting 1937's champion, Spicy Piece the Wire Fox Terrier. The Terrier Group dominated Best in Show wins, with 10 titles over the last 14 shows." },
+      { year: 1945, img: "None", alt : "alt text", text : "In addition to the Great Depression in the 30's, the show was held throughout the entirety of the second World War."},
+      { year: 1958, img: "../assets/img/annotations/1958-BIS-lineup.jpg", alt : "alt text", text : "The finalists line-up for Westminster's 81st Best in Show." },
+      { year: 1964, img: "../assets/img/annotations/1964-whippet-BIS.jpg", alt : "alt text", text : "Ricky, a Whippet from the Hound Group took home 1965's BIS. He was the second hound and the only whippet to have won the title."},
+      { year: 1977, img: "None", alt : "alt text", text : "The Centennial Westminster Dog Show took place on February 15th, 1977."},
+      { year: 1983, img: "None", alt : "alt text", text : "Herding breeds are officially recognized as their own separate group."},
+      { year: 1988, img: "../assets/img/annotations/1988-pom-BIS.jpg", alt : "alt text", text : "Prince, a Pomeranian from the Toy Group, won Best in Show. Prizes include the trophy he's currently sitting in."}, 
       { year: 2002, img: "../assets/img/annotations/2002-Y2K-chi.jpg", alt : "alt text", text : "The chihuahua / toy breed craze peaked in early aughts."},
       { year: 2021, img: "None", alt : "alt text", text : "Westminster's  move to Tarrytown due to the pandemic marked the first time in history the show wasn't held at MSG."}
     ]
@@ -69,7 +70,8 @@ d3.csv(dogCSV, function(d) {
     // making our colour scales
     const purpleScale = d3.scaleOrdinal()
       .domain(data.values, d => { return d.group })
-      .range(['#E2C4FF', '#D8AEFF', '#C487FF', '#965ECD', '#69369B', '#462467', '#28153B'])
+      .range(['#9586A5'])
+      // .range(['#E2C4FF', '#D8AEFF', '#C487FF', '#965ECD', '#69369B', '#462467', '#28153B'])
 
     // HELPER FUNCTIONS ###################################
     const colourFn = function (cell) {
@@ -81,7 +83,7 @@ d3.csv(dogCSV, function(d) {
       else { return purpleCell }
     }
 
-    let years = [1925, 1930, 1937, 1945, 1958, 1964, 1983, 1988, 2002, 2021]
+    let years = [1925, 1930, 1937, 1945, 1958, 1964, 1977, 1983, 1988, 2002, 2021]
     
     const classFn = function (year) {
       if (years.includes(+year)) { return `annotated` }
@@ -229,8 +231,9 @@ d3.csv(dogCSV, function(d) {
       .attr("cx", 12)
       .attr("cy", 44)
       .attr("r", 6)
-      .attr('class', 'dogs') 
-    
+      // .attr('class', 'dogs') 
+      .style("fill", "#9586A5")
+
     legend
       .append("circle")
       .attr("cx", 12)

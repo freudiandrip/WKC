@@ -12,9 +12,16 @@
 </head>
 <body>
   <header>
-  <h1>
-    Westminster's Top Dogs
-  </h1>
+    <div class="framed">
+      <img src="./assets/img/frame.png" class="frame">
+      <video width="754" height="430" controls loop autoplay muted>
+        <source src="./assets/img/header.mov" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h1>Westminster's Top Dogs</h1>
+    <p class="author">By Kim Nguyen</p>
+    <p class="date">July 2023</p>
   </header>
   <div class="content-wrapper">
     <div class="content">
@@ -28,18 +35,20 @@
     <!-- SCROLLY GOES here -->
       <section id="scrolly">
         <div class="sticky-thing">
-          <h1>Best in Show 2023</h1>
-          <img src="./assets/img/BIS-bracket-h.png">
+          <h2>2023's Best in Show Bracket</h2>
+          <!-- <div class="img-container"></div> -->
+          <img src="./assets/img/BIS-bracket-h.png" class="desktop">
+          <img src="./assets/img/BIS-bracket-v.png" class="mobile">
         </div>
 
         <article>
-          <div class="step" data-step="1">
+          <div class="step" data-step="1" >
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
           <div class="step" data-step="2">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="3">
+           <div class="step" data-step="3" id="last">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
           <!-- <div class="step" data-step="4"> -->
@@ -102,6 +111,10 @@
             <p class="year"></p>
             <p class="annotation"></p>
             </div>
+          </div>
+          <div class="note-text y-1977">
+            <p class="year"></p>
+            <p class="annotation"></p>
           </div>
           <div class="note-text y-1983">
             <p class="year"></p>

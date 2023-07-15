@@ -31,18 +31,61 @@ body {
   line-height: 1.5;
 }
 
-h1 {
-  /* font-family: 'Vibur', cursive; */
-  /* font-family: 'Yeseva One', cursive; */
+h1, h2 {
   font-family: 'League Script', cursive;
-  font-size: 36pt;
   color: #462467;
 }
 
+h1 {
+  font-size: 36pt;
+}
+
+h2 {
+  font-size: 28pt;
+}
+
 header {
-  background-color: #eeeeee;
-  margin: auto;
   text-align: center;
+  margin: auto;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header .author {
+  font-size: 16pt;
+  margin: 0;
+}
+
+header .date{
+  font-size: 10pt;
+  margin-top: 4px;
+}
+
+.framed {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.framed img,
+.framed video {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  object-fit: contain;
+}
+
+.frame {
+  z-index: 1;
+  max-width: 98vw;
+}
+
+video {
+  width: 90vw;
+  max-width: 754px;
+  height: auto;
 }
 
 .content-wrapper {
@@ -61,7 +104,6 @@ header {
 .chart-wrapper {
   display: flex;
   flex-direction: row;
-
   justify-content: flex-start;
 }
 
