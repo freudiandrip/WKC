@@ -24,16 +24,16 @@ function handleStepEnter(response) {
   steps.forEach(step => step.classList.remove('is-active'));
   el.classList.add('is-active');
 
+  // removing url
+  desktopTag.removeAttribute("src")
+  mobileTag.removeAttribute("src")
+
   // update graphic based on step
   if (el.id === "last")  {
-    desktopTag.removeAttribute("src")
-    mobileTag.removeAttribute("src")
     desktopTag.src = "../assets/img/BIS-bracket-win-h.png" 
     mobileTag.src = "../assets/img/BIS-bracket-win-v.png" 
   }
   else { 
-    desktopTag.removeAttribute("src")
-    mobileTag.removeAttribute("src")
     desktopTag.src = "../assets/img/BIS-bracket-h.png" 
     mobileTag.src = "../assets/img/BIS-bracket-v.png" 
   }

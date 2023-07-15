@@ -3,21 +3,6 @@
  * ######################################*/
 @import url('https://fonts.googleapis.com/css2?&family=Roboto+Mono&family=League+Script&family=Vibur&family=Yeseva+One&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* custom files not working? */
-@font-face {
-  font-family: 'cmunrm', serif;
-  src: url('../assets/fonts/cmunrm.woff') 
-}
-@font-face {
-  font-family: 'cmunbx', bold;
-  font-weight: 700;
-  src: url('../assets/fonts/cmunbx.woff')
-}
-@font-face {
-  font-family: 'cmunti', italic;
-  src: url('../assets/fonts/cmunti.woff') 
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -42,6 +27,11 @@ h1 {
 
 h2 {
   font-size: 28pt;
+}
+
+h3 {
+  font-size: 20pt;
+  font-weight: 600;
 }
 
 header {
