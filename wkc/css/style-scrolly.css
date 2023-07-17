@@ -4,7 +4,8 @@
 *##################################################*/
 #scrolly {
   position: relative;
-  padding: 1rem;
+  width: 98vw;
+  padding: 2rem;
 }
 
 article {
@@ -18,7 +19,6 @@ article {
   position: -webkit-sticky;
   position: sticky;
   width: auto;
-  height: 100vh;
   margin: 0;
   z-index: 0;
   top: 0;
@@ -30,28 +30,21 @@ article {
   justify-content: flex-start;
 }
 
-/* .img-container { */
-/*   background-color: #ff0000; */
-/*   /1* background-image: url('../assets/img/BIS-bracket-h.png'); *1/ */
-/*   /1* background-size: cover; *1/ */
-/*   max-height: 88vh; */
-/*   min-height: 80vh; */
-/*   width: auto; */
-/* } */
-
 .sticky-thing h2 {
   margin: 0;
+  text-align: center;
 }
 
-.sticky-thing img.desktop,
-.sticky-thing img.mobile { 
+.sticky-thing img.desktop { 
   object-fit: contain;
-  max-height: 95vh;
+  max-height: 90vh;
   min-height: 88vh;
 }
 
 .sticky-thing img.mobile { 
-  visibility: hidden;
+  display: none;
+  object-fit: contain;
+  width: 100vw;
 }
 
 .sticky-thing p {
@@ -64,7 +57,6 @@ article {
   margin: 0 auto 45vh auto;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.1);
-  /* height: ; */
 }
 
 .step:last-child {
@@ -84,3 +76,48 @@ article {
   color: #222222;
   background-color: #F2EFF3;
 }
+
+/* phone screens */
+@media (max-width: 460px) {
+
+  #scrolly {
+    padding: 24px;
+  }
+
+.sticky-thing {
+  height: auto;
+}
+
+.sticky-thing  img.desktop {
+    display: none;
+  }
+
+.sticky-thing img.mobile {
+    display: block;
+    max-height: 86vh;
+  }
+}
+
+/* medium tablet screens */
+@media (min-width: 461px) and (max-width: 660px) {
+  .chart-wrapper {
+    padding-left: 2rem;
+  }
+
+  img.desktop {
+    display: none;
+  }
+  
+  .sticky-thing img.mobile {
+    display: block;
+    max-height: 95vh;
+  }
+}
+
+
+/* bigger screens */
+@media (min-width: 1600px) {
+
+}
+
+
