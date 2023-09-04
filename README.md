@@ -49,5 +49,3 @@ Addressing the issues + nice to haves in 5.1 and 5.2
 ### 5.2 Nice to haves
 - implement a running tally of BIS winners that update as the user scrolls down the page.
 - implement a table of breeds per each group.
------------------------------
-contact: hi@nguyenkim.ca
