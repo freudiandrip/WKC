@@ -1,0 +1,114 @@
+/*###################################################
+* SCROLLY CSS
+* adapted from: https://jsoma.github.io/simplified-scrollama-scrollytelling/sticky-overlay.html
+*##################################################*/
+#scrolly {
+  position: relative;
+  width: 95vw;
+  padding: 2.5vw;
+}
+
+article {
+  position: relative;
+  padding: 0;
+  max-width: 20rem;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.sticky-thing {
+  position: -webkit-sticky;
+  position: sticky;
+  width: auto;
+  margin: 0;
+  z-index: -1;
+  top: 0;
+  
+  /* Center everything inside */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sticky-thing h2 {
+  text-align: center;
+}
+
+.sticky-thing img.desktop { 
+  object-fit: contain;
+  max-height: 90vh;
+  max-width: 95vh;
+}
+
+.sticky-thing img.mobile { 
+  display: none;
+  object-fit: contain;
+  max-height: 80vh;
+  max-width: 80vw;
+}
+
+.sticky-thing p {
+  font-size: 8rem;
+  font-weight: 900;
+  color: #000000;
+}
+
+.step {
+  margin: 0 auto 45vh auto;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.step:last-child {
+  margin-bottom: 110vh;
+}
+
+.step.is-active p {
+  border-style: dotted;
+  border-color: #F7B72A;
+  border-width: 4px;
+}
+
+.step p {
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  color: #222222;
+  background-color: #F2EFF3;
+}
+
+/* phone screens */
+@media (max-width: 460px) {
+
+.sticky-thing {
+  height: auto;
+}
+
+.sticky-thing  img.desktop {
+    display: none;
+  }
+
+.sticky-thing img.mobile {
+    display: block;
+  }
+}
+
+/* medium tablet screens */
+@media (min-width: 461px) and (max-width: 660px) {
+
+  img.desktop {
+    display: none;
+  }
+  
+  .sticky-thing img.mobile {
+    display: block;
+  }
+}
+
+/* bigger screens */
+@media (min-width: 1600px) {
+
+}
+
+
